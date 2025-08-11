@@ -2,6 +2,7 @@ import streamlit as st
 from src.langgraphagenticai.ui.streamlitui.loadui import LoadStreamlitUI
 from src.langgraphagenticai.LLMS.groqllm import GroqLLM
 from src.langgraphagenticai.LLMS.openaillm import OpenAiLLM
+from src.langgraphagenticai.LLMS.geminillm import GeminiLLM
 from src.langgraphagenticai.graph.graph_builder import GraphBuilder
 from src.langgraphagenticai.ui.streamlitui.display_result import DisplayResultStreamlit
 
@@ -34,6 +35,9 @@ def load_langgraph_agenticai_app():
                 obj_llm_config=GroqLLM(user_controls_input=user_input)
             elif selected_llm == 'OpenAI':
                 obj_llm_config=OpenAiLLM(user_controls_input=user_input)
+            elif selected_llm == 'Gemini':
+
+                obj_llm_config=GeminiLLM(user_controls_input=user_input)
         
             model=obj_llm_config.get_llm_model()
 
